@@ -1,0 +1,61 @@
+[project]
+name = "sadel"
+dynamic = ["version"]
+description = "Simplifies upserting records to database"
+authors = [
+    { name = "Daniël Tom", email = "d.e.tom89@gmail.com" }
+]
+dependencies = [
+    "sqlmodel~=0.0.21",
+]
+readme = "README.md"
+requires-python = ">= 3.9"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pyright~=1.1.374",
+    "pytest~=8.3.2",
+    "setuptools~=72.1.0",
+    "pytest-asyncio~=0.23.8",
+    "aiosqlite~=0.20.0",
+    "greenlet~=3.0.3",
+]
+
+[tool.rye.scripts]
+fmt = "rye fmt"
+lint = "rye lint --fix"
+check = "pyright"
+test = "rye test"
+all = { chain = ["fmt", "lint", "check", "test"] }
+
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+strict = ["**/*.py"]
+pythonVersion = "3.9"
+include = ["sadel/**/*.py"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+	"A",    # warn about shadowing built-ins
+	"E",    # style stuff, whitespaces
+	"F",    # important pyflakes lints
+	"I",    # import sorting
+	"N",    # naming
+	"T100", # breakpoints (probably don't want these in prod!)
+]
+
+
+[tool.ruff.lint.isort]
+known-first-party = ["sadel"]
+
