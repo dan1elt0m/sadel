@@ -1,16 +1,16 @@
 # Sadel 
 
 Sadel simplifies upserting records to your database 
-by extending [SQLModel](https://sqlmodel.tiangolo.com/). It adds a single line of code to upsert records to your database. 
+by extending [SQLModel](https://sqlmodel.tiangolo.com/). You'll only need a single line of code to upsert records to your database. 
 It also supports batch upserting records. In addition, it automatically adds and manages `created_on` and `modified_on` 
-columns to your table for auditing purposes and validates the record before upserting. 
+columns to your model and table and validates the record before upserting using pydantic validation. 
 
 
 ### Features 
 - (Batch) upsert records with a single line of code.
-- Asyncio support
 - For auditing, automatically adds and manages `created_on` and `modified_on` columns to your table 
 - Validates your data before upserting using Pydantic validate_model method (not supported in SQLModel)
+- Asyncio support
 
 #### Example upsert
 ```python
