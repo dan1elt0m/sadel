@@ -1,7 +1,7 @@
 [project]
 name = "sadel"
 dynamic = ["version"]
-description = "Simplifies upserting records to database"
+description = "Helper class for upserting records to database"
 authors = [
     { name = "Daniël Tom", email = "d.e.tom89@gmail.com" }
 ]
