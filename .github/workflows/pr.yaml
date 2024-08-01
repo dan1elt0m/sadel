@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: eifinger/setup-rye@v3
-      - run: rye pin ${{ matrix.python-version }} # pin  Python version
+      - run: rye pin ${{ matrix.py }} # pin  Python version
       - run: |                    # abort if the lockfile changes
           rye sync
           [[ -n $(git diff --stat requirements.lock) ]] && exit 1
