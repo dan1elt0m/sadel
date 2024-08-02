@@ -8,7 +8,7 @@
 # Sadel 
 
 Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/). 
-Sadel combines SQLAlchemy(sa) and SQLmodel(del), and in Danish, 'sadel' means 'saddle,' symbolizing taking over the burden of managing upserts."
+    Sadel combines SQLAlchemy ('sa') and SQLmodel ('del'), and in Danish, 'sadel' means 'saddle,' symbolizing taking over the burden of managing upserts."
 
 ### Installation
 ```bash
