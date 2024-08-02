@@ -16,11 +16,13 @@ pip install sadel
 ```
 
 ### Features 
-- Upsert and batch_upsert record functions.
-- For auditing, automatically adds and manages `created_on` and `modified_on` columns to your table 
+- Upsert and batch_upsert functions.
+- For auditing, automatically adds and manages `created_on` and `modified_on` columns to your table (timezones are supported).
 - Validates your data before upserting using Pydantic validate_model method (not supported in SQLModel)
 - Asyncio
 - Compatible with Alembic
+- Specify the (PK) columns to use for upserting using `_upsert_index_elements` attribute
+- Ignore specific columns from updating using `_upsert_exclude_fields` attribute
 
 #### Example upsert
 ```python
@@ -85,6 +87,31 @@ Hero(id=2, name='Spider-Boy", secret_name='Pedro Parqueador', created_on=datetim
 Hero(id=3, name='Rusty-Man', secret_name='Tommy Sharp', created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None)]
 ```
 
+### Example update record
+```python
+async with AsyncSession(async_engine) as session:
+    # Upsert the record
+    hero = Hero(name="Deadpond", secret_name="Dive Wilson", age=25)
+    await Hero.upsert(hero, session)
+
+    # Update the record
+    hero.age = 30
+    # Upsert the updated record
+    await Hero.upsert(hero, session)
+
+    # Fetch the updated record
+    result = (
+        (await session.exec(select(Hero).where(Hero.name == "Deadpond")))
+        .scalars()
+        .all()
+    )
+
+    print(result)
+```
+Output:
+```text
+[Hero(id=1, name='Deadpond', secret_name='Dive Wilson', age=30, created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=datetime.datetime(2024, 8, 1, 19, 39, 8))]
+```
 
 ### Contributing
 - Fork the repository
