@@ -6,7 +6,6 @@ from typing import Any, ClassVar
 
 import sqlalchemy as sa
 from pydantic import ConfigDict
-from pydantic.v1 import validate_model
 from sqlalchemy.dialects.postgresql import Insert, insert
 from sqlmodel import Field, SQLModel
 
@@ -14,7 +13,7 @@ from sqlmodel import Field, SQLModel
 class Sadel(SQLModel):
     """Base class for SQL models."""
 
-    model_config = ConfigDict(validate_assignment=True)  # type: ignore
+    model_config = ConfigDict(validate_assignment=True)  # pyright: ignore
     created_on: datetime | None = Field(
         default=None,
         sa_type=sa.DateTime(timezone=True),  # type: ignore
@@ -36,14 +35,6 @@ class Sadel(SQLModel):
             "It will be automatically set when the record is created in the database."
         ),
     )
-
-    def __init__(self, **data: Any) -> None:
-        super().__init__(**data)
-        # Workaround to validate the model on init, which is not supported by SQLModel
-        if hasattr(self, "__config__"):
-            _, _, validation_error = validate_model(self.__class__, data)  # pyright: ignore
-            if validation_error:
-                raise validation_error
 
     # Specifies the set of index elements which represent the ON CONFLICT target
     _upsert_index_elements: ClassVar[set[str]] = set()

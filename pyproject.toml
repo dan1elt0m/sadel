@@ -25,13 +25,14 @@ dev-dependencies = [
     "pytest-asyncio~=0.23.8",
     "aiosqlite~=0.20.0",
     "greenlet~=3.0.3",
+    "pytest-cov~=5.0.0",
 ]
 
 [tool.rye.scripts]
 fmt = "rye fmt"
 lint = "rye lint --fix"
 check = "pyright"
-test = "rye test"
+test = "rye test -- --cov sadel --cov-report term-missing --cov-report xml:coverage.xml"
 all = { chain = ["fmt", "lint", "check", "test"] }
 
 
