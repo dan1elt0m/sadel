@@ -1,5 +1,6 @@
 [![CodeQL](https://github.com/dan1elt0m/sadel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/dan1elt0m/sadel/actions/workflows/codeql-analysis.yml)
 [![Dependabot Updates](https://github.com/dan1elt0m/sadel/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/dan1elt0m/sadel/actions/workflows/dependabot/dependabot-updates)
+[![test](https://github.com/dan1elt0m/sadel/actions/workflows/test.yml/badge.svg)](https://github.com/dan1elt0m/sadel/actions/workflows/test.yml)
 
 # Sadel 
 
