@@ -8,7 +8,7 @@
 # Sadel 
 
 Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/). 
-    Sadel combines SQLAlchemy ('sa') and SQLmodel ('del'), and in Danish, 'sadel' means 'saddle' symbolizing taking over the burden of managing upserts."
+    Sadel combines SQLAlchemy ('sa') and SQLmodel ('del'), and in Danish, 'sadel' means 'saddle' symbolizing taking over the burden of managing upserts.
 
 ### Installation
 ```bash
@@ -60,7 +60,7 @@ async with AsyncSession(async_engine) as session:
 ```
 Output:
 ```text
-[Hero(id=1, name='Deadpond', secret_name='Dive Wilson', created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None)]
+[Hero(id=1, name='Deadpond', secret_name='Dive Wilson', age=None, created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None)]
 ```
 ### Example batch upsert
 ```python
@@ -82,9 +82,9 @@ async with AsyncSession(async_engine) as session:
 ```
 Output:
 ```text
-[Hero(id=1, name='Deadpond', secret_name='Dive Wilson', created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None), 
-Hero(id=2, name='Spider-Boy", secret_name='Pedro Parqueador', created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None),
-Hero(id=3, name='Rusty-Man', secret_name='Tommy Sharp', created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None)]
+[Hero(id=1, name='Deadpond', secret_name='Dive Wilson',age=None, created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None), 
+Hero(id=2, name='Spider-Boy", secret_name='Pedro Parqueador',age=None, created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None),
+Hero(id=3, name='Rusty-Man', secret_name='Tommy Sharp', age=48, created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None)]
 ```
 
 ### Example update record
