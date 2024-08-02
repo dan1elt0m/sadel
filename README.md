@@ -10,6 +10,10 @@
 Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/). 
 You'll only need a single line of code to upsert records to your database. 
 
+### Installation
+```bash
+pip install sadel
+```
 
 ### Features 
 - (Batch) upsert records with a single line of code.
@@ -81,10 +85,6 @@ Hero(id=2, name='Spider-Boy", secret_name='Pedro Parqueador', created_on=datetim
 Hero(id=3, name='Rusty-Man', secret_name='Tommy Sharp', created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=None)]
 ```
 
-### Installation
-```bash
-pip install sadel
-```
 
 ### Contributing
 - Fork the repository
