@@ -2,6 +2,8 @@
 [![Dependabot Updates](https://github.com/dan1elt0m/sadel/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/dan1elt0m/sadel/actions/workflows/dependabot/dependabot-updates)
 [![test](https://github.com/dan1elt0m/sadel/actions/workflows/test.yml/badge.svg)](https://github.com/dan1elt0m/sadel/actions/workflows/test.yml)
 [![codecov](https://codecov.io/github/dan1elt0m/sadel/graph/badge.svg?token=NECZRE656C)](https://codecov.io/github/dan1elt0m/sadel)
+![Python Version from PEP 621 TOML](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fdan1elt0m%2Fsadel%2Fmain%2Fpyproject.toml)
+
 
 # Sadel 
 
