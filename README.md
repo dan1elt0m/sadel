@@ -23,7 +23,7 @@ from sqlmodel import Field, create_engine, select, or_
 from sqlmodel.ext.asyncio.session import AsyncSession
 
 class Hero(Sadel, table=True):
-    __tablename__ = "hero"  # type: ignore
+    __tablename__ = "hero" 
     _upsert_index_elements = {"id"}
 
     id: int | None = Field(default=None, primary_key=True)

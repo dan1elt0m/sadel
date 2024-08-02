@@ -12,7 +12,7 @@ from sadel import Sadel
 
 
 class Hero(Sadel, table=True):
-    __tablename__ = "hero"  # type: ignore
+    __tablename__ = "hero"
     _upsert_index_elements = {"id"}
 
     id: Optional[int] = Field(default=None, primary_key=True)
@@ -90,3 +90,21 @@ async def test_modified_on_upsert(temp_db):
 async def test_validate():
     with pytest.raises(ValidationError, match="Input should be a valid integer"):
         Hero(name="Deadpond", secret_name="Dive Wilson", age=datetime.now())
+
+
+@pytest.mark.asyncio()
+async def test_missing_upsert_identifier(temp_db):
+    class Woops(Sadel, table=True):
+        __tablename__ = "woops"
+
+        id: Optional[int] = Field(default=None, primary_key=True)
+        name: str
+        secret_name: str
+        age: Optional[int] = None
+
+    sqlite_url_async = f"sqlite+aiosqlite:///{temp_db}"
+    async_engine = create_async_engine(sqlite_url_async, echo=True, future=True)
+    loser_1 = Woops(id=1, name="Deadpond", secret_name="Dive Wilson")
+    with pytest.raises(ValueError, match="No upsert index elements specified for the model."):
+        async with AsyncSession(async_engine) as session:
+            await Woops.upsert(loser_1, session)
