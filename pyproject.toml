@@ -32,7 +32,7 @@ dev-dependencies = [
 fmt = "rye fmt"
 lint = "rye lint --fix"
 check = "pyright"
-test = "rye test -- --cov sadel --cov-report term-missing --cov-report xml:coverage.xml"
+test = "rye test -- --cov sadel --cov-report term-missing --cov-report xml:coverage.xml --junitxml=junit/report.xml"
 all = { chain = ["fmt", "lint", "check", "test"] }
 
 

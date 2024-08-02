@@ -8,6 +8,7 @@ wheels/
 .pytest_cache
 .coverage
 coverage.xml
+junit/
 
 # venv
 .venv
