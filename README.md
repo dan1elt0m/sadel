@@ -7,8 +7,7 @@
 
 # Sadel 
 
-Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/). 
-You'll only need a single line of code to upsert records to your database. 
+Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/).
 
 ### Installation
 ```bash
