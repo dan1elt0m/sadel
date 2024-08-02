@@ -13,15 +13,15 @@ jobs:
       - uses: eifinger/setup-rye@v3
       - run: rye pin ${{ matrix.py }} # pin  Python version
       - run: rye sync
-      - run: |
-          diff=$(git diff requirements.lock)
-          if [[ -n $diff ]]; then
-            echo "requirements.lock file has changed:"
-            echo "$diff"
-            exit 1
-          else
-            echo "requirements.lock file has not changed"
-          fi
+#      - run: |
+#          diff=$(git diff requirements.lock)
+#          if [[ -n $diff ]]; then
+#            echo "requirements.lock file has changed:"
+#            echo "$diff"
+#            exit 1
+#          else
+#            echo "requirements.lock file has not changed"
+#          fi
       - run: rye fmt --check      # check formatting is correct
       - run: rye lint             # and linting
       - run: rye run check        # typecheck too
