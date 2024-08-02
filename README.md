@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/dan1elt0m/sadel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/dan1elt0m/sadel/actions/workflows/codeql-analysis.yml)
+
 # Sadel 
 
 Sadel simplifies upserting records to your database 
