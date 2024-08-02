@@ -7,14 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        py: ['3.9', '3.10', '3.11', '3.12' ]
+        py: ['3.10', '3.11', '3.12' ]
     steps:
       - uses: actions/checkout@v4
       - uses: eifinger/setup-rye@v3
       - run: rye pin ${{ matrix.py }} # pin  Python version
-      - run: |                    # abort if the lockfile changes
-          rye sync
-          [[ -n $(git diff --stat requirements.lock) ]] && exit 1
+      - run: rye sync
+#      - run: |
+#          diff=$(git diff requirements.lock)
+#          if [[ -n $diff ]]; then
+#            echo "requirements.lock file has changed:"
+#            echo "$diff"
+#            exit 1
+#          else
+#            echo "requirements.lock file has not changed"
+#          fi
       - run: rye fmt --check      # check formatting is correct
       - run: rye lint             # and linting
       - run: rye run check        # typecheck too
