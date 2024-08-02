@@ -8,7 +8,7 @@
 # Sadel 
 
 Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/). 
-    Sadel combines SQLAlchemy ('sa') and SQLmodel ('del'), and in Danish, 'sadel' means 'saddle,' symbolizing taking over the burden of managing upserts."
+    Sadel combines SQLAlchemy ('sa') and SQLmodel ('del'), and in Danish, 'sadel' means 'saddle' symbolizing taking over the burden of managing upserts."
 
 ### Installation
 ```bash
@@ -16,7 +16,7 @@ pip install sadel
 ```
 
 ### Features 
-- (Batch) upsert records with a single line of code.
+- Upsert and batch_upsert record functions.
 - For auditing, automatically adds and manages `created_on` and `modified_on` columns to your table 
 - Validates your data before upserting using Pydantic validate_model method (not supported in SQLModel)
 - Asyncio
