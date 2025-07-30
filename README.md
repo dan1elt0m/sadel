@@ -40,12 +40,8 @@ class Hero(Sadel, table=True):
     secret_name: str
     age: int | None = None
 
-# Create normal sqlite engine
-sqlite_url = "sqlite:///database.db" 
-engine = create_engine(sqlite_url, echo=True, future=True)
-
-# or Async sqlite engine
-sqlite_url_async = "sqlite+aiosqlite::///database.db" 
+# Create
+sqlite_url_async = "sqlite+aiosqlite:///database.db" 
 async_engine = create_async_engine(sqlite_url_async, echo=True, future=True)
 
 
