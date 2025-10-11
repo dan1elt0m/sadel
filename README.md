@@ -119,13 +119,5 @@ Output:
 - Make your changes
 - Raise a PR
 
-### Development
-```bash
-# install dependencies
-rye sync 
-# run tests, linting, formatting, and type checking, 
-rye run all
-```
-
 ### License
 This project is licensed under the terms of the [MIT License](LICENSE)
