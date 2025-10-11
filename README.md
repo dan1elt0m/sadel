@@ -8,21 +8,11 @@
 # Sadel 
 
 Sadel is a helper class for upserting records with [SQLModel](https://sqlmodel.tiangolo.com/). 
-    Sadel combines SQLAlchemy ('sa') and SQLmodel ('del'), and in Danish, 'sadel' means 'saddle' symbolizing taking over the burden of managing upserts.
 
 ### Installation
 ```bash
 pip install sadel
 ```
-
-### Features 
-- Upsert and batch_upsert functions.
-- For auditing, automatically adds and manages `created_on` and `modified_on` columns to your table (timezones are supported).
-- Validates your data before upserting using Pydantic validate_model method (not supported in SQLModel)
-- Asyncio
-- Compatible with Alembic
-- Specify the (PK) columns to use for upserting using `_upsert_index_elements` attribute
-- Ignore specific columns from updating using `_upsert_exclude_fields` attribute
 
 #### Example upsert
 ```python
@@ -113,6 +103,15 @@ Output:
 ```text
 [Hero(id=1, name='Deadpond', secret_name='Dive Wilson', age=30, created_on=datetime.datetime(2024, 8, 1, 19, 39, 7), modified_on=datetime.datetime(2024, 8, 1, 19, 39, 8))]
 ```
+
+### Features
+- Upsert and batch_upsert functions.
+- For auditing, automatically adds and manages `created_on` and `modified_on` columns to your table (timezones are supported).
+- Validates your data before upserting using Pydantic validate_model method (not supported in SQLModel)
+- Asyncio
+- Compatible with Alembic
+- Specify the (PK) columns to use for upserting using `_upsert_index_elements` attribute
+- Ignore specific columns from updating using `_upsert_exclude_fields` attribute
 
 ### Contributing
 - Fork the repository
