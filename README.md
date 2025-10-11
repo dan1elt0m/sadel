@@ -39,11 +39,12 @@ class Hero(Sadel, table=True):
     name: str
     secret_name: str
     age: int | None = None
-    
-sqlite_url = f"sqlite+aiosqlite::///database.db" 
-engine = create_engine(sqlite_url, echo=True, future=True)
 
+# Create
+sqlite_url_async = "sqlite+aiosqlite:///database.db" 
 async_engine = create_async_engine(sqlite_url_async, echo=True, future=True)
+
+
 hero = Hero(name="Deadpond", secret_name="Dive Wilson")
 
 async with AsyncSession(async_engine) as session:
