@@ -6,7 +6,7 @@ authors = [
     { name = "Daniël Tom", email = "d.e.tom89@gmail.com" }
 ]
 dependencies = [
-    "sqlmodel~=0.0.21",
+    "sqlmodel>=0.0.21,<0.1.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.10"

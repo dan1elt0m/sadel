@@ -419,7 +419,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "sqlmodel", specifier = "~=0.0.21" }]
+requires-dist = [{ name = "sqlmodel", specifier = ">=0.0.21,<0.1.0" }]
 
 [package.metadata.requires-dev]
 dev = [
