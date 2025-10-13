@@ -22,7 +22,7 @@ dev = [
     "setuptools~=72.1.0",
     "pytest-asyncio~=0.23.8",
     "aiosqlite~=0.20.0",
-    "greenlet~=3.0.3",
+    "greenlet>=3.0.3,<3.3.0",
     "pytest-cov~=5.0.0",
 ]
 
